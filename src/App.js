@@ -49,6 +49,7 @@ function App() {
 
   function rollDice() {
     if(tenzies) {
+      setTenzies(false)
       setDice(allNewDice())
     }
     else {
