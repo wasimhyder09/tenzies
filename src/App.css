@@ -60,3 +60,18 @@ body {
 .roll-dice:active {
   box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
+h1.title {
+  font-family: 'Karla';
+  font-weight: 100;
+  font-size: 45px;
+  letter-spacing: -0.03em;
+}
+p.instructions {
+  font-family: 'Inter';
+  font-style: normal;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: -0.03em;
+  color: #4A4E74;
+  width: 85%;
+}
