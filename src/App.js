@@ -1,20 +1,25 @@
+import {useState, useEffect} from 'react'
 import Die from './components/Die'
 import './App.css';
 
 function App() {
+
+  function allNewDice() {
+    let randomNumbers = []
+    for(let i=1; i<= 10; i++) {
+      randomNumbers[i] = Math.floor(Math.random() * 6) + 1;
+    }
+    return randomNumbers;
+  }
+
+  const[dice, setDice] = useState(() => allNewDice())
+
+  const diceElements = dice.map(die => <Die value={die} />)
+
   return (
     <div className="container">
       <div className="dice-container">
-        <Die value="1" />
-        <Die value="2" />
-        <Die value="3" />
-        <Die value="4" />
-        <Die value="5" />
-        <Die value="6" />
-        <Die value="1" />
-        <Die value="2" />
-        <Die value="3" />
-        <Die value="4" />
+        {diceElements}
       </div>
     </div>
   );
