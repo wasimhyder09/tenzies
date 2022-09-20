@@ -5,16 +5,19 @@ import './App.css';
 function App() {
 
   function allNewDice() {
-    let randomNumbers = []
+    const newDice = []
     for(let i=1; i<= 10; i++) {
-      randomNumbers[i] = Math.floor(Math.random() * 6) + 1;
+      newDice.push({
+        value: (Math.floor(Math.random() * 6) + 1),
+        isHeld: false
+      })
     }
-    return randomNumbers;
+    return newDice;
   }
 
-  const[dice, setDice] = useState(() => allNewDice())
+  const[dice, setDice] = useState(allNewDice())
 
-  const diceElements = dice.map(die => <Die value={die} />)
+  const diceElements = dice.map(die => <Die value={die.value} />)
 
   function rollDice() {
     setDice(allNewDice())
