@@ -40,9 +40,6 @@ body {
   cursor: pointer;
   background-color: #fff;
 }
-.die-num {
-  font-size: 2rem;
-}
 .roll-dice {
   height: 50px;
   width: 100px;
@@ -74,4 +71,68 @@ p.instructions {
   letter-spacing: -0.03em;
   color: #4A4E74;
   width: 85%;
+}
+
+/*** Die face styling ***/
+.die-face {
+  padding: 8px;
+  width: 85px;
+  height: 85px;
+  border-radius: 10%;
+  margin-right : 10px;
+}
+.die-num {
+  padding: 4px;
+  width: 80px;
+  height: 80px;
+  border-radius: 10%;
+}
+.die-face .dot {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #ff6347;
+}
+.die-count-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.die-count-2 {
+  display: flex ;
+  justify-content: space-between;
+}
+
+.die-count-2  .dot:nth-of-type(2) {
+  align-self: flex-end;
+}
+
+.die-count-3 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.die-count-3 .dot:nth-of-type(1) {
+  align-self :flex-end;
+}
+
+.die-count-3 .dot:nth-of-type(2) {
+  align-self :center;
+}
+
+
+.die-count-4 , .die-count-6, .die-count-5 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.die-count-4 .column , .die-count-6 .column, .die-count-5 .column{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.die-count-5 .column:nth-of-type(2) {
+  justify-content: center;
 }
