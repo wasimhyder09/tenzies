@@ -23,6 +23,7 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  padding-top: 0px;
 }
 .dice-container {
   display: grid;
@@ -62,6 +63,7 @@ h1.title {
   font-weight: 100;
   font-size: 45px;
   letter-spacing: -0.03em;
+  margin-bottom: 0px;
 }
 p.instructions {
   font-family: 'Inter';
@@ -136,4 +138,9 @@ p.instructions {
 }
 h1.roll-count {
   font-size: 45px;
+}
+h1.title.timer {
+  height: 10px;
+  font-size: 40px;
+  margin: 5px;
 }

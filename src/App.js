@@ -25,6 +25,13 @@ function App() {
   const[dice, setDice] = useState(allNewDice())
   const [tenzies, setTenzies] = useState(false)
   const [rolls, setRolls] = useState(0)
+  const[timer, setTimer] = useState(0)
+
+  useEffect(() => {
+    if(!tenzies) {
+      setTimeout(()=>setTimer(timer + 1), 1000)
+    }
+  },[timer]);
 
   useEffect(() => {
     let firstDie = dice[0].value
@@ -75,6 +82,7 @@ function App() {
     <div className="container">
       {tenzies && <Confetti />}
       <h1 className="title">Tenzies</h1>
+      <h1 className="title timer">{new Date(timer * 1000).toISOString().substring(14, 19)}</h1>
       <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
       <div className="dice-container">
         {diceElements}
