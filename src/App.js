@@ -24,6 +24,7 @@ function App() {
 
   const[dice, setDice] = useState(allNewDice())
   const [tenzies, setTenzies] = useState(false)
+  const [rolls, setRolls] = useState(0)
 
   useEffect(() => {
     let firstDie = dice[0].value
@@ -51,11 +52,13 @@ function App() {
     if(tenzies) {
       setTenzies(false)
       setDice(allNewDice())
+      setRolls(0)
     }
     else {
       setDice(oldDice => oldDice.map(die => {
         return die.isHeld === true ? die : generateNewDie()
       }))
+      setRolls(prevRolls => prevRolls + 1)
     }
   }
 
@@ -79,6 +82,10 @@ function App() {
       <button className="roll-dice" onClick={rollDice}>
         {tenzies ? "Reset Game" : "Roll"}
       </button>
+      <div className="number-of-rolls">
+        <h2 className="roll-title">Number of rolls</h2>
+        <h1 className="roll-count">{rolls}</h1>
+      </div>
     </div>
   );
 }

@@ -8,8 +8,8 @@ body {
 #root {
   background-color: #0B2434;
   max-width: 700px;
-  margin: 100px auto;
-  height: 75vh;
+  margin: 40px auto;
+  height: 85vh;
   font-family: 'Karla', sans-serif;
   border: 40px solid #0B2434;
 }
@@ -103,36 +103,37 @@ p.instructions {
   display: flex ;
   justify-content: space-between;
 }
-
 .die-count-2  .dot:nth-of-type(2) {
   align-self: flex-end;
 }
-
 .die-count-3 {
   display: flex;
   justify-content: space-between;
 }
-
 .die-count-3 .dot:nth-of-type(1) {
   align-self :flex-end;
 }
-
 .die-count-3 .dot:nth-of-type(2) {
   align-self :center;
 }
-
-
 .die-count-4 , .die-count-6, .die-count-5 {
   display: flex;
   justify-content: space-between;
 }
-
 .die-count-4 .column , .die-count-6 .column, .die-count-5 .column{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-
 .die-count-5 .column:nth-of-type(2) {
   justify-content: center;
+}
+.number-of-rolls {
+  height: 70px;
+  line-height: 15px;
+  text-align: center;
+  text-transform: capitalize;
+}
+h1.roll-count {
+  font-size: 45px;
 }
