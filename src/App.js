@@ -26,12 +26,14 @@ function App() {
   const [tenzies, setTenzies] = useState(false)
   const [rolls, setRolls] = useState(0)
   const[timer, setTimer] = useState(0)
+  const bestTime = localStorage.getItem('bestTime')
 
   useEffect(() => {
     if(!tenzies) {
       setTimeout(()=>setTimer(timer + 1), 1000)
     }
-  },[timer]);
+  },[timer])
+
 
   useEffect(() => {
     let firstDie = dice[0].value
@@ -43,6 +45,12 @@ function App() {
     })
     if(heldCount == 10) {
       setTenzies(true)
+      if(bestTime && timer < bestTime) {
+        localStorage.setItem('bestTime', timer)
+      }
+      else if(!bestTime) {
+        localStorage.setItem('bestTime', timer)
+      }
     }
   }, [dice])
 
@@ -60,6 +68,7 @@ function App() {
       setTenzies(false)
       setDice(allNewDice())
       setRolls(0)
+      setTimer(0)
     }
     else {
       setDice(oldDice => oldDice.map(die => {
@@ -77,9 +86,9 @@ function App() {
     }))
   }
 
-
   return (
     <div className="container">
+      {bestTime && <div className="best-timer">Best time: {new Date(bestTime * 1000).toISOString().substring(14, 19)}</div>}
       {tenzies && <Confetti />}
       <h1 className="title">Tenzies</h1>
       <h1 className="title timer">{new Date(timer * 1000).toISOString().substring(14, 19)}</h1>
